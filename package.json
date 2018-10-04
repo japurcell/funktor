@@ -1,6 +1,6 @@
 {
   "name": "funktor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Functional relief helpers",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -19,7 +19,9 @@
     "type": "git",
     "url": "git+https://github.com/japurcell/funktor.git"
   },
-  "keywords": ["functional"],
+  "keywords": [
+    "functional"
+  ],
   "author": "japurcell",
   "license": "ISC",
   "bugs": {
