@@ -20,7 +20,9 @@ type Possible<T> = Nothing<T> | Something<T>;
  * @param {T} t
  */
 export const possible = <T>(t: T): Possible<T> =>
-  t === null || t === undefined ? { tag: 'none', match } : { tag: 'some', value: t, match };
+  t === null || t === undefined 
+    ? { tag: 'none', match }
+    : { tag: 'some', value: t, match };
 
 /**
  * Applies a function to a `Possible` by matching
