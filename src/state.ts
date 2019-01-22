@@ -2,7 +2,7 @@
  * A function that accepts some previous state `S`
  * and returns a tuple of a value `V` and another
  * state of `S`.
- * */
+ */
 export type State<V, S> = (state: S) => [V, S];
 
 /**
@@ -10,14 +10,14 @@ export type State<V, S> = (state: S) => [V, S];
  *
  */
 export const initState = <V, S>(v: V, s: S): State<V, S> =>
-  _ => [v, s];
+  (_) => [v, s];
 
 /**
  * The monadic bind function.
  *
  */
 export const bind = <V, R, S>(state: State<V, S>, binder: (next: [V, S]) => [R, S]): State<R, S> =>
-  prev => binder(state(prev));
+  (prev) => binder(state(prev));
 
 /**
  * Bind to a function that keeps the same state `S`,
@@ -25,7 +25,7 @@ export const bind = <V, R, S>(state: State<V, S>, binder: (next: [V, S]) => [R, 
  *
  */
 export const mapValue = <V, S, R>(state: State<V, S>, mapper: (next: [V, S]) => R): State<R, S> =>
-  bind(state, res => [mapper(res), res[1]]);
+  bind(state, (res) => [mapper(res), res[1]]);
 
 /**
  * Bind to a function that keeps the same value `V`,
@@ -33,7 +33,7 @@ export const mapValue = <V, S, R>(state: State<V, S>, mapper: (next: [V, S]) => 
  *
  */
 export const mapState = <V, S>(state: State<V, S>, mapper: (next: [V, S]) => S): State<V, S> =>
-  bind(state, res => [res[0], mapper(res)]);
+  bind(state, (res) => [res[0], mapper(res)]);
 
 /**
  * Map a value `T` to a function that generates
