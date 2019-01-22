@@ -34,11 +34,3 @@ export const mapValue = <V, S, R>(state: State<V, S>, mapper: (next: [V, S]) => 
  */
 export const mapState = <V, S>(state: State<V, S>, mapper: (next: [V, S]) => S): State<V, S> =>
   bind(state, (res) => [res[0], mapper(res)]);
-
-/**
- * Map a value `T` to a function that generates
- * an `R` from the parameter of `T`.
- *
- */
-export const map = <T, R>(t: T, mapFn: (t: T) => R) =>
-  mapFn(t);

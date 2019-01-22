@@ -1,4 +1,5 @@
 src
 tsconfig.json
+tsfmt.json
 tslint.json
 jestconfig.json
