@@ -1,10 +1,12 @@
-interface Right<R> {
+interface Right<R>
+{
   tag: 'right';
   val: R;
   match: typeof match;
 }
 
-interface Left<L> {
+interface Left<L>
+{
   tag: 'left';
   val: L;
   match: typeof match;
@@ -38,10 +40,12 @@ export const Left = <L>(l: L): Either<L, any> => ({ tag: 'left', val: l, match }
  * @param {(R) => Ret} right
  * @param {(L) => Ret} left
  */
-function match<L, R, Ret>(this: Either<L, R>, right: (r: R) => Ret, left: (l: L) => Ret) {
+function match<L, R, Ret>(this: Either<L, R>, right: (r: R) => Ret, left: (l: L) => Ret)
+{
   let result: Ret;
 
-  switch (this.tag) {
+  switch (this.tag)
+  {
     case 'right':
       result = right(this.val);
       break;

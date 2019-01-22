@@ -1,9 +1,11 @@
-interface Nothing<T> {
+interface Nothing<T>
+{
   tag: 'none';
   match: typeof match;
 }
 
-interface Something<T> {
+interface Something<T>
+{
   tag: 'some';
   value: T;
   match: typeof match;
@@ -30,8 +32,10 @@ export const possible = <T>(t: T): Possible<T> =>
  * @param {(T) => R} some
  * @param {() => R} none
  */
-function match<T, R>(this: Possible<T>, some: (t: T) => R, none: () => R) {
-  switch (this.tag) {
+function match<T, R>(this: Possible<T>, some: (t: T) => R, none: () => R)
+{
+  switch (this.tag)
+  {
     case 'some':
       return some(this.value);
     case 'none':
