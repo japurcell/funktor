@@ -3,7 +3,7 @@ import { equals, map } from './utils';
 /**
  * A function type that calculates a boolean given
  * some value of `T`.
- * */
+ */
 export type Predicate<T> = (t: T) => boolean;
 
 declare global
@@ -91,14 +91,12 @@ Array.prototype.remove = function remove<T>(this: T[], predicate: Predicate<T>):
 {
   return map(
     this.findIndex(predicate),
-    index => this.filter((_, idx) => idx !== index)
-  );
+    index => this.filter((_, idx) => idx !== index));
 };
 
 Array.prototype.update = function update<T>(this: T[], replacement: T, predicate: Predicate<T>): T[]
 {
   return map(
     this.findIndex(predicate),
-    index => this.map((item, idx) => idx === index ? replacement : item)
-  );
+    index => this.map((item, idx) => idx === index ? replacement : item));
 };
